@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.sqlserver.dao.PtestDAO">
+
+    <!-- 水乐园   -->
+    <select id="queryShui" parameterType="string" resultType="string">
+        select count(*) from TBD01_SP
+    </select>
+    <select id="queryShuiLike" parameterType="string" resultType="string">
+        select count(*) from TBD01_SP t where t.sDateYMD like concat(#{ymd},'%')
+    </select>
+    <select id="queryShuiKindLike" parameterType="string" resultType="string">
+        select count(*) from TBD01_SP t where t.sKKind = #{kind}
+    </select>
+    <select id="queryShuiKindName" resultType="string">
+        select sKKind from TBD01_SP
+    </select>
+
+    <!--  陆地乐园  -->
+    <select id="queryLu" parameterType="string" resultType="string">
+        select count(*) from LDTBD01_SP
+    </select>
+    <select id="queryLuLike" parameterType="string" resultType="string">
+        select count(*) from LDTBD01_SP l where l.sDateYMD like concat(#{ymd},'%')
+    </select>
+    <select id="queryLuKindLike" parameterType="string" resultType="string">
+        select count(*) from LDTBD01_SP l where l.sKKind = #{kind}
+    </select>
+    <select id="queryLuKindName" resultType="string">
+        select sKKind from LDTBD01_SP
+    </select>
+
+    <!--  温泉  -->
+    <select id="queryWen" parameterType="string" resultType="string">
+        select count(*) from T05BD01_SP
+    </select>
+    <select id="queryWenLike" parameterType="string" resultType="string">
+        select count(*) from T05BD01_SP t where t.sDateYMD like concat(#{ymd},'%')
+    </select>
+    <select id="queryWenKindLike" parameterType="string" resultType="string">
+        select count(*) from T05BD01_SP t where t.sKKind = #{kind}
+    </select>
+    <select id="queryWenKindName" resultType="string">
+        select sKKind from T05BD01_SP
+    </select>
+</mapper>
