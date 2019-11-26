@@ -19,14 +19,10 @@ public class FileProvider implements ReportProvider, ApplicationContextAware {
 
     private static final String NAME = "项目服务器文件系统";
     private String fileStoreDir = "src/main/resources/ureportfiles";
-
     //特定前缀，ureport底层调用getPrefix方法来获报表操作的Provier类
     private String prefix = "file:";
-
     //是否禁用
     private boolean disable = false;
-
-
     /**
      * 加载报表方法
      *
@@ -38,7 +34,6 @@ public class FileProvider implements ReportProvider, ApplicationContextAware {
         if (fileName.startsWith(this.prefix)) {
             fileName = fileName.substring(this.prefix.length(), fileName.length());
         }
-
         String fullPath = this.fileStoreDir + "/" + fileName;
         try {
             return new FileInputStream(new File(fullPath));
@@ -57,7 +52,6 @@ public class FileProvider implements ReportProvider, ApplicationContextAware {
         if (fileName.startsWith(this.prefix)) {
             fileName = fileName.substring(this.prefix.length(), fileName.length());
         }
-
         String fullPath = this.fileStoreDir + "/" + fileName;
         File f = new File(fullPath);
         if (f.exists()) {
